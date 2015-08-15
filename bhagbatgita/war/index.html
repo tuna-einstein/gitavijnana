@@ -119,13 +119,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	<script>
 function showDiv(pageid) {
-   $("#on-bottom").load("simple.html");
+if (pageid == 10110) {
+    $("#on-bottom").load("bg_1_01_10.html");
+}
+if (pageid == 23140) {
+$("#on-bottom").load("bg_2_31_40.html");
+}
+
+   
 }
 </script>
 	<ul id="menu2">
 		<li>Chapter 1
 			<ul>
-				<li><a href="#" onClick="showDiv(1);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(10110);">01-10</a></li>
 				<li><a href="#" onClick="showDiv(1);">11-20</a></li>
 				<li><a href="#" onClick="showDiv(1);">21-30</a></li>
 				<li><a href="#" onClick="showDiv(1);">31-41</a></li>
@@ -137,7 +144,7 @@ function showDiv(pageid) {
 				<li><a href="#" onClick="showDiv(1);">01-10</a></li>
 				<li><a href="#" onClick="showDiv(1);">11-20</a></li>
 				<li><a href="#" onClick="showDiv(1);">21-30</a></li>
-				<li><a href="#" onClick="showDiv(1);">31-40</a></li>
+				<li><a href="#" onClick="showDiv(23140);">31-40</a></li>
 				<li><a href="#" onClick="showDiv(1);">41-50</a></li>
 				<li><a href="#" onClick="showDiv(1);">51-61</a></li>
 			</ul>

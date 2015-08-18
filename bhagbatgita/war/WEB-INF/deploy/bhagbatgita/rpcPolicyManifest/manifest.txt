@@ -1,3 +1,0 @@
-# Module bhagbatgita
-# RPC service class, partial path of RPC policy file
-com.usp.bg.client.GreetingService, 6CBA45A62D15351F53E43C9730632F9F.gwt.rpc

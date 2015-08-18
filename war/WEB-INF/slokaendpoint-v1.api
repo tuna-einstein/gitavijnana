@@ -1,0 +1,241 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://qa-gitavijnana.appspot.com/_ah/api",
+  "name" : "slokaendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://qa-gitavijnana.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "usp.com",
+  "ownerName" : "usp.com",
+  "packagePath" : "gitavijnana.shared.model",
+  "methods" : {
+    "slokaendpoint.updateSloka" : {
+      "path" : "sloka",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.usp.gitavijnana.shared.model.SlokaEndpoint.updateSloka",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "slokaendpoint.insertSloka" : {
+      "path" : "sloka",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.usp.gitavijnana.shared.model.SlokaEndpoint.insertSloka",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "slokaendpoint.removeSloka" : {
+      "path" : "sloka/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.usp.gitavijnana.shared.model.SlokaEndpoint.removeSloka",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "slokaendpoint.listSloka" : {
+      "path" : "sloka",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.usp.gitavijnana.shared.model.SlokaEndpoint.listSloka",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "slokaendpoint.getSloka" : {
+      "path" : "sloka/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.usp.gitavijnana.shared.model.SlokaEndpoint.getSloka",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Sloka" : {
+        "id" : "Sloka",
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "$ref" : "Key"
+          },
+          "chapter" : {
+            "type" : "integer"
+          },
+          "slokaNum" : {
+            "type" : "integer"
+          },
+          "english" : {
+            "type" : "string"
+          },
+          "sanskrit" : {
+            "type" : "string"
+          },
+          "audioLink" : {
+            "type" : "string"
+          },
+          "sanskritToEnglish" : {
+            "type" : "string"
+          },
+          "englishTranslation" : {
+            "type" : "string"
+          },
+          "version" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "Key" : {
+        "id" : "Key",
+        "type" : "object",
+        "properties" : {
+          "kind" : {
+            "type" : "string"
+          },
+          "appId" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "$ref" : "Key"
+          },
+          "complete" : {
+            "type" : "boolean"
+          },
+          "namespace" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Sloka" : {
+        "id" : "CollectionResponse_Sloka",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Sloka"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.usp.gitavijnana.shared.model.SlokaEndpoint.updateSloka" : {
+        "request" : {
+          "$ref" : "Sloka"
+        },
+        "response" : {
+          "$ref" : "Sloka"
+        }
+      },
+      "com.usp.gitavijnana.shared.model.SlokaEndpoint.insertSloka" : {
+        "request" : {
+          "$ref" : "Sloka"
+        },
+        "response" : {
+          "$ref" : "Sloka"
+        }
+      },
+      "com.usp.gitavijnana.shared.model.SlokaEndpoint.removeSloka" : {
+      },
+      "com.usp.gitavijnana.shared.model.SlokaEndpoint.listSloka" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Sloka"
+        }
+      },
+      "com.usp.gitavijnana.shared.model.SlokaEndpoint.getSloka" : {
+        "response" : {
+          "$ref" : "Sloka"
+        }
+      }
+    }
+  }
+}

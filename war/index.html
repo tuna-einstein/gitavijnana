@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Bhagvad Gita</title>
+
+<link rel="stylesheet" href="dist/stylesheets/superslides.css">
+<link rel="stylesheet" href="dist/stylesheets/layout.css">
+<link rel="stylesheet" href="dist/stylesheets/normalize.css">
+<link rel="stylesheet" href="slicknav/slicknav.css" />
+
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+
+<script src="javascripts/jquery.easing.1.3.js"></script>
+<script src="javascripts/jquery.animate-enhanced.min.js"></script>
+<script src="javascripts/csi.js"></script>
+<script src="dist/jquery.superslides.js" type="text/javascript"
+	charset="utf-8"></script>
+<script src="slicknav/jquery.slicknav.min.js"></script>
+
+<script type="text/javascript" src="businesslogic.js"></script>
+<!-- 
+<script>
+function init() {
+//	Parameters are APIName,APIVersion,CallBack function,API Root 
+	gapi.client.load('slokaendpoint', 'v1',
+	null,
+	'https://qa-gitavijnana.appspot.com/_ah/api').then(
+	function() { 
+	console.log('loaded.'); 
+	var requestData = {};
+	requestData.chapter = 2;
+	requestData.sloka = 31;
+	
+	 gapi.client.slokaendpoint.getSloka(requestData).execute(function(resp) {
+                 window.alert("Successful...." + JSON.stringify(resp));
+                });
+	
+	});
+}
+</script>
+<script src="https://apis.google.com/js/client.js?onload=init"> </script>
+ -->
+
+
+
+<style type="text/css">
+#menu2 {
+	display: none;
+}
+
+.intro_description {
+	color: black;
+	margin: 10%;
+	font-size: 1.5em;
+	
+}
+
+.intro_point {
+	margin: 1em;
+	opacity: 0.7;
+	size: 1em;
+}
+
+.title_header {
+	color: white;
+}
+
+.slicknav_menu {
+	display: block;
+	background: rgba(128, 128, 128, 0.9);
+	box-shadow: 5px 5px 5px black;
+}
+
+.slicknav_btn {
+	text-align: center;
+	box-shadow: 5px 5px 5px black;
+}
+
+.slicknav_nav .slicknav_row {
+	text-shadow: 5px 5px 5px black;
+}
+
+.slicknav_nav li {
+	text-align: center;
+}
+
+.slicknav_nav a {
+	font-size: 1.5em;
+	text-shadow: 10px 10px 10px black;
+}
+
+.slicknav_menu .slicknav_icon {
+	margin: 0.5em 0 0 0.7em;
+}
+
+#container {
+	position: relative;
+}
+
+#on-all-above {
+	position: absolute;
+	z-index: 99;
+}
+
+#on-top {
+	position: absolute;
+	z-index: 55;
+	width: 100%;
+}
+
+#on-bottom {
+	position: absolute;
+	z-index: 4;
+	width: 100%;
+}
+</style>
+
+<!--  Sloka style -->
+
+
+
+<style type="text/css">
+table {
+	overflow: scroll;
+	width: 95%;
+}
+
+.chapterTitle {
+	color: black;
+	font-size: 1em;
+	opacity: 0.7;
+	font-weight: bolder;
+}
+
+.headerClass {
+	color: white;
+	font-size: 2em;
+	opacity: 0.7;
+	width: 100%;
+	text-align: center;
+	text-shadow: 2px 2px 2px black;
+}
+
+.sanskritSloka {
+	color: black;
+	font-size: 1.5em;
+	opacity: 0.7;
+}
+
+.englishSloka {
+	color: black;
+	font-size: 1.5em;
+	opacity: 0.7;
+}
+
+.englishTranslation {
+	color: black;
+	font-size: 1.5em;
+	opacity: 0.7;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+.descriptionStyle {
+	color: black;
+	font-size: 1.2em;
+	opacity: 0.7;
+}
+
+.main_container {
+	background-color: white;
+}
+</style>
+</head>
+
+<body>
+
+
+	<!-- Google Tag Manager -->
+	<noscript>
+		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-P7DHV2"
+			height="0" width="0" style="display: none; visibility: hidden"></iframe>
+	</noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P7DHV2');</script>
+	<!-- End Google Tag Manager -->
+
+
+	<script>
+function showDiv(chapter, start, end) {
+ $("#bhagvadgita_header").html("Please wait.......");
+loadSlokas('on-bottom', chapter, start, end);
+  // $("#on-bottom").load("simple.html");
+}
+</script>
+
+	<ul id="menu2">
+		<li>Chapter 1
+			<ul>
+				<li><a href="#" onClick="showDiv(1, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(1, 11, 20);">11-20</a></li>
+				<li><a href="#" onClick="showDiv(1, 21, 30);">21-30</a></li>
+				<li><a href="#" onClick="showDiv(1, 31, 41);">31-41</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 2
+			<ul>
+				<li><a href="#" onClick="showDiv(2, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(2, 11, 20);">11-20</a></li>
+				<li><a href="#" onClick="showDiv(2, 21, 30);">21-30</a></li>
+				<li><a href="#" onClick="showDiv(2, 31, 40);">31-40</a></li>
+				<li><a href="#" onClick="showDiv(2, 41, 50);">41-50</a></li>
+				<li><a href="#" onClick="showDiv(2, 51, 61);">51-61</a></li>
+			</ul>
+		</li>
+
+
+		<li>Chapter 3
+			<ul>
+				<li><a href="#" onClick="showDiv(3, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(3, 11, 20);">11-20</a></li>
+				<li><a href="#" onClick="showDiv(3, 21, 31);">21-31</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 4
+			<ul>
+				<li><a href="#" onClick="showDiv(4, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(4, 11, 20);">11-20</a></li>
+				<li><a href="#" onClick="showDiv(4, 21, 31);">21-31</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 5
+			<ul>
+				<li><a href="#" onClick="showDiv(5, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(5, 11, 21);">11-21</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 6
+			<ul>
+				<li><a href="#" onClick="showDiv(6, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(6, 11, 20);">11-20</a></li>
+				<li><a href="#" onClick="showDiv(6, 21, 30);">21-30</a></li>
+				<li><a href="#" onClick="showDiv(6, 31, 41);">31-41</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 7
+			<ul>
+				<li><a href="#" onClick="showDiv(7, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(7, 11, 21);">11-21</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 8
+			<ul>
+				<li><a href="#" onClick="showDiv(8, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(8, 11, 21);">11-21</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 9
+			<ul>
+				<li><a href="#" onClick="showDiv(9, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(9, 11, 21);">11-21</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 10
+			<ul>
+				<li><a href="#" onClick="showDiv(10, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(10, 11, 21);">11-21</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 11
+			<ul>
+				<li><a href="#" onClick="showDiv(11, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(11, 11, 21);">11-21</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 12
+			<ul>
+				<li><a href="#" onClick="showDiv(12, 1, 11);">01-11</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 13
+			<ul>
+				<li><a href="#" onClick="showDiv(13, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(13, 11, 21);">11-21</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 14
+			<ul>
+				<li><a href="#" onClick="showDiv(14, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(14, 11, 21);">11-21</a></li>
+			</ul>
+		</li>
+
+
+		<li>Chapter 15
+			<ul>
+				<li><a href="#" onClick="showDiv(15, 1, 11);">01-11</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 16
+			<ul>
+				<li><a href="#" onClick="showDiv(16, 1, 11);">01-11</a></li>
+			</ul>
+		</li>
+
+		<li>Chapter 17
+			<ul>
+				<li><a href="#" onClick="showDiv(17, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(17, 11, 21);">11-21</a></li>
+			</ul>
+		</li>
+
+
+		<li>Chapter 18
+			<ul>
+				<li><a href="#" onClick="showDiv(18, 1, 10);">01-10</a></li>
+				<li><a href="#" onClick="showDiv(18, 11, 20);">11-20</a></li>
+				<li><a href="#" onClick="showDiv(18, 21, 30);">21-30</a></li>
+				<li><a href="#" onClick="showDiv(18, 31, 40);">31-40</a></li>
+				<li><a href="#" onClick="showDiv(18, 41, 50);">41-50</a></li>
+				<li><a href="#" onClick="showDiv(18, 51, 60);">51-60</a></li>
+				<li><a href="#" onClick="showDiv(18, 61, 71);">61-71</a></li>
+			</ul>
+		</li>
+	</ul>
+
+	<div id="container">
+
+		<div id="on-all-above">
+			<div id="bhagvadgita_header" class="headerClass">Bhagvad Gita</div>
+		</div>
+		<div id="on-top"></div>
+
+		<div id="on-bottom">
+
+
+			<ul class="intro_description">
+				<li class="intro_point">Bhagavad Gita - Part of Sanskrit Epic
+					Mahabhaaratha.</li>
+				<li class="intro_point">700 verses in 18 chapters.</li>
+				<li class="intro_point">A conversation between Lord Krishna and
+					his close friend Arjuna in the middle of the battlefield just
+					before the start of the Kurukshetra battle.</li>
+				<li class="intro_point">Arjuna loses his heart and refuses to
+					fight his teachers and relatives, and Krishna revives him by his
+					wise words of wisdom.</li>
+
+
+			</ul>
+
+		</div>
+
+
+
+	</div>
+	<script>
+	$(function(){
+	
+		$('#menu2').slicknav({
+	label: 'Chapters',
+	closeOnClick: 'true',
+	prependTo: '#on-top'
+});
+	});
+</script>
+
+
+	<script>
+    $(document).ready(function() {
+      $('#slides').superslides({
+        hashchange: true
+      });
+    });
+</script>
+
+</body>
+</html>

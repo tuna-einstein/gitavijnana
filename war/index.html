@@ -24,6 +24,7 @@
 <script src="slicknav/jquery.slicknav.min.js"></script>
 
 <script type="text/javascript" src="businesslogic.js"></script>
+
 <!-- 
 <script>
 function init() {
@@ -46,7 +47,12 @@ function init() {
 </script>
 <script src="https://apis.google.com/js/client.js?onload=init"> </script>
  -->
+<script>
+$('body').bind('animating.slides', function(e){
+  console.log("Animating slides");
+});
 
+</script>
 
 
 <style type="text/css">
@@ -83,6 +89,10 @@ function init() {
 
 .slicknav_nav .slicknav_row {
 	text-shadow: 5px 5px 5px black;
+}
+
+.slides-pagination a.current {
+	background: #BABABA;
 }
 
 .slicknav_nav li {
@@ -175,6 +185,16 @@ table {
 .main_container {
 	background-color: white;
 }
+
+.navigationLink {
+	color: gray;
+	font-size: 1.2em;
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-style: normal;
+	display: inline-block;
+	text-decoration: inherit;
+}
 </style>
 </head>
 
@@ -195,10 +215,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 	<script>
-function showDiv(chapter, start, end) {
+function showDivExtra(chapter, start, end, startPoint) {
  $("#bhagvadgita_header").html("Please wait.......");
-loadSlokas('on-bottom', chapter, start, end);
-  // $("#on-bottom").load("simple.html");
+loadSlokas('on-bottom', chapter, start, end, startPoint);
+}
+
+function showDiv(chapter, start, end) {
+showDivExtra(chapter, start, end, 1);
 }
 </script>
 

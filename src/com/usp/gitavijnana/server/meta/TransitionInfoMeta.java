@@ -1,6 +1,6 @@
 package com.usp.gitavijnana.server.meta;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2015-08-25 13:58:16")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2015-08-25 22:59:25")
 /** */
 public final class TransitionInfoMeta extends org.slim3.datastore.ModelMeta<com.usp.gitavijnana.shared.model.TransitionInfo> {
 

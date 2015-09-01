@@ -1,6 +1,6 @@
 package com.usp.gitavijnana.server.meta;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2015-08-17 08:39:09")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2015-08-25 22:59:25")
 /** */
 public final class SlokaMeta extends org.slim3.datastore.ModelMeta<com.usp.gitavijnana.shared.model.Sloka> {
 

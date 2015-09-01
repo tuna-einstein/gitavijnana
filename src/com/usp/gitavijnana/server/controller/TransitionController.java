@@ -10,8 +10,11 @@ public class TransitionController extends Controller {
 
     @Override
     public Navigation run() throws Exception {
-        TransitionInfo info = new TransitionInfo();
-        Datastore.put(info);
+//        for (int i = 13; i < 73 ; i++) {
+//            TransitionInfo info = new TransitionInfo();
+//            info.setIndex(i);
+//            Datastore.put(info); 
+//        }
         return forward("transition.jsp");
     }
 }

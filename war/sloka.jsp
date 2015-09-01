@@ -36,7 +36,43 @@
 %>
 
 
+<%
+		String currentStart = request.getParameter("cs").trim();
+		String currentEnd = request.getParameter("ce").trim();
+		Integer csi = Integer.valueOf(currentStart);
+		Integer cei = Integer.valueOf(currentEnd);
 
+		TransitionInfoMeta trnInfoMeta = TransitionInfoMeta.get();
+		TransitionInfo trnInfo = Datastore
+				.query(trnInfoMeta)
+				.filter(trnInfoMeta.chapter.equal(chapterInt),
+						trnInfoMeta.start.equal(csi),
+						trnInfoMeta.end.equal(cei)).asSingle();
+
+		if (trnInfo == null) {
+			trnInfo = new TransitionInfo();
+		}
+		int currentIndex = trnInfo.getIndex();
+		int prevIndex = (currentIndex == 1) ? 73 : currentIndex - 1;
+		int nextIndex = (currentIndex == 73) ? 1 : currentIndex + 1;
+
+		TransitionInfoMeta prevMeta = TransitionInfoMeta.get();
+		TransitionInfo prev = Datastore.query(prevMeta)
+				.filter(prevMeta.index.equal(prevIndex)).asSingle();
+		if (prev == null) {
+			prev = new TransitionInfo();
+		}
+
+		TransitionInfoMeta nextMeta = TransitionInfoMeta.get();
+		TransitionInfo next = Datastore.query(nextMeta)
+				.filter(nextMeta.index.equal(nextIndex)).asSingle();
+		if (next == null) {
+			next = new TransitionInfo();
+		}
+		
+		int currentPage = Integer.valueOf(slokaNum) - csi; 
+	%>
+	
 <div>
 	<table id="table_<%=uniqueId%>" align="center">
 		<tr class="headerClass" id="header_<%=uniqueId%>">
@@ -48,7 +84,7 @@
 			</td>
 		</tr>
 		<tr valign="middle" id="audioLink_<%=uniqueId%>">
-			<td align="center" colspan="2"><audio controls>
+			<td align="center" colspan="2"><audio controls id="player_<%=currentPage%>">
 					<source src="<%=result.getAudioLink()%>" type="audio/mpeg">
 				</audio></td>
 		</tr>
@@ -73,40 +109,7 @@
 		</tr>
 	</table>
 
-	<%
-		String currentStart = request.getParameter("cs").trim();
-		String currentEnd = request.getParameter("ce").trim();
-		Integer csi = Integer.valueOf(currentStart);
-		Integer cei = Integer.valueOf(currentEnd);
-
-		TransitionInfoMeta trnInfoMeta = TransitionInfoMeta.get();
-		TransitionInfo trnInfo = Datastore
-				.query(trnInfoMeta)
-				.filter(trnInfoMeta.chapter.equal(chapterInt),
-						trnInfoMeta.start.equal(csi),
-						trnInfoMeta.end.equal(cei)).asSingle();
-
-		if (trnInfo == null) {
-			trnInfo = new TransitionInfo();
-		}
-		int currentIndex = trnInfo.getIndex();
-		int prevIndex = (currentIndex == 1) ? 18 : currentIndex - 1;
-		int nextIndex = (currentIndex == 18) ? 1 : currentIndex + 1;
-
-		TransitionInfoMeta prevMeta = TransitionInfoMeta.get();
-		TransitionInfo prev = Datastore.query(prevMeta)
-				.filter(prevMeta.index.equal(prevIndex)).asSingle();
-		if (prev == null) {
-			prev = new TransitionInfo();
-		}
-
-		TransitionInfoMeta nextMeta = TransitionInfoMeta.get();
-		TransitionInfo next = Datastore.query(nextMeta)
-				.filter(nextMeta.index.equal(nextIndex)).asSingle();
-		if (next == null) {
-			next = new TransitionInfo();
-		}
-	%>
+	
 	<script type="text/javascript">
 	
 	prevChapter =<%=prev.getChapter()%>;

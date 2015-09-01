@@ -66,11 +66,13 @@ function extractSanskritToEnglishText() {
 function umasankar(chapter, slokaNum){
 	var uuuu= "http://sacred-texts.com/hin/mbs/mbs060"+(22 + chapter)+".htm"
 	console.log(uuuu);
+	//slokaNum = slokaNum - 1;
 	$("#ext_page").load("http://cors.io/?u=" + uuuu,
 			function() {
 		var sanskrit = extractSanskritSloka(slokaNum);
 		$("#sanskrit_id").val(sanskrit);
 		var english = extractEnglishSloka(slokaNum);
+		
 		$("#english_id").val(english);
 		$("#english_translation_id").val(extractEnglishText());
 		$("#sanskrit_to_english_id").val(extractSanskritToEnglishText());
